@@ -1,5 +1,6 @@
 def findAttendance(name: str) -> str:
     returnStr = ''
+    name = name.strip().upper()
     with open('attendanceSheet.csv', 'r') as file:
         for line in file:
             line = line.strip().split(',')
@@ -42,5 +43,17 @@ def totalExcused() -> str:
 
 
 if __name__ == '__main__':
-    print(totalExcused())
-    # pass
+    inpoot = input('\nEnter p for total presences, a for absences, e for excused absences, or type a last name for all info about one person. \nOr press q to quit:')
+    while inpoot.strip().lower() != 'q':
+        if len(inpoot.strip().lower()) > 1:
+            print(findAttendance(inpoot))
+        elif inpoot.strip().lower() == 'p':
+            print(totalPresents())
+        elif inpoot.strip().lower() == 'a':
+            print(totalAbsents())
+        elif inpoot.strip().lower() == 'e':
+            print(totalExcused())
+        else:
+            print("Invalid entry")
+
+        inpoot = input('\nEnter p for total presences, a for absences, e for excused absences, or type a last name for all info about one person. \nOr press q to quit:')
