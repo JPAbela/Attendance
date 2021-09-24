@@ -1,25 +1,14 @@
-# def setTotals() -> None:
-#     '''
-#     Makes the total present, absent, and excused numbers correct
-#     '''
-#     rowws = []
-#     with open('attendanceSheet.csv', 'r') as file:
-#         for line in file:
-#             line = line.strip().split()
-#             if line[0].equals("Name"):
-#                 rowws.append(line)
-#                 continue
-#             line[-3] = line.count('p')
-#             line[-2] = line.count('a')
-#             line[-1] = line.count('e')
-#
-#     with open('attendanceSheet.csv', 'a')
-
-def addDay(att:list) -> None:
+def addDay() -> None:
     '''
-    Adds attendance data in a new column for the last day
+    Asks for attendance data and inputs it in attendanceSheet.csv in a new column
+    for the last day.
     '''
     rows = []
+
+    att = input("Enter attendance info: ").strip().split()
+    for el in att:
+        el = str(el)
+
     with open('attendanceSheet.csv', 'r') as file:
         for line in file:
             line = line.strip().split(',')
@@ -42,5 +31,4 @@ def addDay(att:list) -> None:
     return None
 
 if __name__ == '__main__':
-    l = ['9/24', 'p','a','p','p','p','a','p','a','p','p','p','p','e','p','p','p','p','p','p']
-    addDay(l)
+    addDay()
