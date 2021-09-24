@@ -1,6 +1,5 @@
-def findAttendance() -> str:
+def findAttendance(name: str) -> str:
     returnStr = ''
-    name = input("Enter last name: ").strip().upper()
     with open('attendanceSheet.csv', 'r') as file:
         for line in file:
             line = line.strip().split(',')
@@ -38,6 +37,8 @@ def totalExcused() -> str:
                 continue
             output += (str(line[0]) + ': ' + str(line[-1]) + '\n')
     return output
+
+
 
 
 if __name__ == '__main__':
