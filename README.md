@@ -1,2 +1,2 @@
 # Attendance
-simple python for attendance sheets
+simple python programs for attendance sheets
